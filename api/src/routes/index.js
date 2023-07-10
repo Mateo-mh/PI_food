@@ -1,24 +1,23 @@
 const { Router } = require('express');
+const { getRecipeHandler, 
+    getIdHandler, 
+    getNameHandler, 
+    postRecipeHandler, 
+    getDietsHandler } = require('../handlers/mainHandler');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
+
 const mainRouter = Router();
 
-mainRouter.get("/recipes/:idRecipe", (req, res) => {
-    res.send('Get idRecipe exitoso');
-  });
-  
-mainRouter.get("/recipes", (req, res) => {
-    const { name } = req.query;
-    res.send(`Get name exitoso: ${name}`);
-    });
+mainRouter.get("/", getRecipeHandler)
 
-mainRouter.post("/recipes", (req, res) => {
-    res.send('Post recipes exitoso');
-  });
+mainRouter.get("/recipes/:idRecipe", getIdHandler)
   
-mainRouter.get("/diets", (req, res) => {
-    res.send('Get diets exitoso');
-  });
+mainRouter.get("/recipes", getNameHandler)
+
+mainRouter.post("/recipes", postRecipeHandler)
+  
+mainRouter.get("/diets", getDietsHandler)
 
 
 // Configurar los routers
