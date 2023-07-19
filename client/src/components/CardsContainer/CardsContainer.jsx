@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import React from 'react';
 import Card from '../Card/Card.jsx';
 import { useSelector } from 'react-redux';
 
@@ -9,6 +9,7 @@ const CardsContainer = () => {
 
   const startIndex = (currentPage - 1) * RECIPES_PER_PAGE;
   const paginatedRecipes = recipes.slice(startIndex, startIndex + RECIPES_PER_PAGE);
+
  
   return (
     <div>
@@ -27,3 +28,4 @@ const CardsContainer = () => {
 };
 
 export default CardsContainer;
+
